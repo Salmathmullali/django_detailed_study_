@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Django To-Do</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, Arial; background:#0b1220; color:#e6e9ef; margin:0; }
+    .container { max-width: 720px; margin: 40px auto; padding: 24px; background:#121a2b; border-radius:16px; border:1px solid #23314e; }
+    h1 { margin:0 0 16px; }
+    form.inline { display:flex; gap:8px; }
+    input[type="text"] { flex:1; padding:10px 12px; border-radius:10px; border:1px solid #2b3a5a; background:#0e1626; color:#e6e9ef; }
+    button, .btn { padding:10px 14px; border:none; border-radius:10px; background:#3b82f6; color:white; cursor:pointer; text-decoration:none; }
+    .btn.secondary { background:#334155; }
+    .task { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border:1px solid #23314e; border-radius:10px; margin-top:8px; }
+    .muted { color:#94a3b8; }
+    .done { text-decoration: line-through; color:#94a3b8; }
+    .row { display:flex; gap:8px; align-items:center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

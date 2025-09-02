@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>📝 To-Do</h1>
+
+<!-- Search (GET) -->
+<form class="inline" method="get">
+  <input type="text" name="q" value="{{ q }}" placeholder="Search tasks…">
+  <button type="submit">Search</button>
+  <a class="btn secondary" href="{% url 'task_list' %}">Clear</a>
+</form>
+
+<!-- Add Task (POST) -->
+<form class="inline" method="post" action="{% url 'task_create' %}" style="margin-top:10px;">
+  {% csrf_token %}
+  {{ form.title }}
+  <button type="submit">Add</button>
+</form>
+
+<!-- Tasks -->
+<div style="margin-top:16px;">
+  {% for task in tasks %}
+    <div class="task">
+      <div class="row">
+        <!-- Toggle completed (POST) -->
+        <form method="post" action="{% url 'task_toggle' task.pk %}">
+          {% csrf_token %}
+          <button class="btn secondary" type="submit">{{ task.completed|yesno:"✓,○" }}</button>
+        </form>
+        <div class="{{ task.completed|yesno:'done,' }}">{{ task.title }}</div>
+        <div class="muted">• {{ task.created|date:"Y-m-d H:i" }}</div>
+      </div>
+      <div class="row">
+        <a class="btn secondary" href="{% url 'task_update' task.pk %}">Edit</a>
+        <form method="post" action="{% url 'task_delete' task.pk %}">
+          {% csrf_token %}
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  {% empty %}
+    <p class="muted" style="margin-top:12px;">No tasks yet. Add your first one above.</p>
+  {% endfor %}
+</div>
+{% endblock %}
