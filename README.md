@@ -38,12 +38,12 @@ In Django (and most web apps), CRUD refers to creating views and endpoints that 
 <h2>Models</h2><br>
 A model is the single, definitive source of information about your data. It contains the essential fields and behaviors of the data you’re storing.<br>
 <h3>Exaample</h3><br>
-from django.db import models
+from django.db import models<br>
 
-class Task(models.Model):
-    title = models.CharField(max_length=200)
-    completed = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
+class Task(models.Model):<br>
+    title = models.CharField(max_length=200)<br>
+    completed = models.BooleanField(default=False)<br>
+    created = models.DateTimeField(auto_now_add=True)<br>
 
     def __str__(self):
         return self.title
