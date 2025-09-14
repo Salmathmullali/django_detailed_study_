@@ -2,7 +2,7 @@
 
 <li>C → Create → Add new data (e.g., a new user, task, or product).</li>
 
-Example: INSERT in SQL, or creating a new object in Django (Model.objects.create(...)).
+Example: INSERT in SQL, or creating a new object in Django (Model.objects.create).
 
 <li>R → Read → Retrieve or view existing data.</li>
 
@@ -57,4 +57,5 @@ CREATE TABLE tasks_task (<br>
     "completed" boolean NOT NULL,<br>
     "created" timestamp with time zone NOT NULL<br>
 );
-
+<br>
+model details
