@@ -58,4 +58,5 @@ CREATE TABLE tasks_task (<br>
     "created" timestamp with time zone NOT NULL<br>
 );
 <br>
-model details
+model details<br><br>
+A model is the single, definitive source of information about your data
